@@ -19,6 +19,7 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import vexatos.backpacks.backpack.BackpackTypes;
+import vexatos.backpacks.misc.CreativeTabBackpacks;
 import vexatos.backpacks.reference.Mods;
 
 import java.util.logging.Logger;
@@ -37,37 +38,7 @@ public class ForecastersBackpacks {
 	public static Configuration config;
 	public static Logger log;
 
-	public static CreativeTabs tab = new CreativeTabs("forecastersbackpacks") {
-		private ItemStack displayStack;
-
-		@Override
-		public ItemStack getIconItemStack() {
-			if(displayStack == null) {
-				for(BackpackTypes value : BackpackTypes.VALUES) {
-					Item item = value.getItem(EnumBackpackType.T1);
-					if(item != null) {
-						this.displayStack = new ItemStack(item);
-						break;
-					}
-				}
-				if(displayStack == null) {
-					for(BackpackTypes value : BackpackTypes.VALUES) {
-						Item item = value.getItem(EnumBackpackType.T2);
-						if(item != null) {
-							this.displayStack = new ItemStack(item);
-							break;
-						}
-					}
-				}
-			}
-			return this.displayStack;
-		}
-
-		@Override
-		public Item getTabIconItem() {
-			return null;
-		}
-	};
+	public static CreativeTabs tab = new CreativeTabBackpacks();
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent e) {
