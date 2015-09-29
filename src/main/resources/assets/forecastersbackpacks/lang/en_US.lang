@@ -1,0 +1,14 @@
+# Master lang file
+
+itemGroup.forecastersbackpacks=Forecaster's Backpacks
+
+item.forecastersbackpacks.backpack.computer.t1.name=Computer Engineer's Backpack
+item.forecastersbackpacks.backpack.computer.t2.name=Woven Computer Engineer's Backpack
+item.forecastersbackpacks.backpack.pneumatic.t1.name=Pneumatic Engineer's Backpack
+item.forecastersbackpacks.backpack.pneumatic.t2.name=Woven Pneumatic Engineer's Backpack
+item.forecastersbackpacks.backpack.buildcraft.plumber.t1.name=Plumber's Backpack
+item.forecastersbackpacks.backpack.buildcraft.plumber.t2.name=Woven Plumber's Backpack
+item.forecastersbackpacks.backpack.buildcraft.robotic.t1.name=Robotics Engineer's Backpack
+item.forecastersbackpacks.backpack.buildcraft.robotic.t2.name=Woven Robotics Engineer's Backpack
+item.forecastersbackpacks.backpack.buildcraft.machinist.t1.name=Machinist's Backpack
+item.forecastersbackpacks.backpack.buildcraft.machinist.t2.name=Woven Machinist's Backpack

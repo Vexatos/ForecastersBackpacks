@@ -1,0 +1,185 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		maven {
+			name = "forge"
+			url = "http://files.minecraftforge.net/maven"
+		}
+		maven {
+			name = "sonatype"
+			url = "https://oss.sonatype.org/content/repositories/snapshots/"
+		}
+	}
+	dependencies {
+		classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+	}
+}
+
+apply plugin: 'forge'
+
+file "build.properties" withReader {
+	def prop = new Properties()
+	prop.load(it)
+	ext.config = new ConfigSlurper().parse prop
+}
+
+version = "${config.minecraft.version}-${config.backpacks.version}"
+group = "vexatos.backpacks" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "ForecastersBackpacks"
+
+if (JavaVersion.current().isJava8Compatible()) {
+	allprojects {
+		tasks.withType(Javadoc) {
+			options.addStringOption('Xdoclint:none', '-quiet')
+		}
+	}
+}
+
+repositories {
+	maven {
+		name = "OC repo"
+		url = "http://maven.cil.li/"
+	}
+	maven {
+		name "Mobius Repo"
+		url "http://mobiusstrip.eu/maven"
+	}
+	maven {
+		name 'CB Repo'
+		url "http://chickenbones.net/maven/"
+	}
+	maven {
+		name 'tterrag Repo'
+		url "http://maven.tterrag.com/"
+	}
+	maven {
+		name = "Forestry and IC2 repo"
+		url = "http://maven.ic2.player.to/"
+	}
+	maven {
+		name = "Bluepower Repo"
+		url = "http://maven.bluepowermod.com/"
+	}
+	maven {
+		name = "RX14's Repo"
+		url = "http://mvn.rx14.co.uk/repo/"
+    }
+	maven {
+		name = "Pneudraulicraft Repo"
+		url = "http://maven.k-4u.nl/"
+	}
+	ivy {
+		name = "BuildCraft"
+		artifactPattern "http://www.mod-buildcraft.com/releases/BuildCraft/[revision]/[module]-[revision]-[classifier].[ext]"
+	}
+}
+
+configurations {
+	provided
+	embedded
+	compile.extendsFrom provided, embedded
+	all*.exclude group: "codechicken"
+}
+
+dependencies {
+	compile "li.cil.oc:OpenComputers:${config.oc.version}:dev"
+	provided "net.industrial-craft:industrialcraft-2:${config.ic2.version}:dev"
+	provided "com.gregoriust.gregtech:gregtech_1.7.10:${config.gregtech.version}:dev"
+	compile "mcp.mobius.waila:Waila:${config.waila.version}:dev"
+	compile("com.enderio:EnderIO:${config.enderio.version}:dev") {
+		exclude module: "appliedenergistics2"
+		exclude module: "buildcraft"
+		exclude module: "Waila"
+		exclude module: "forestry_1.7.10"
+	}
+	compile("net.sengir.forestry:forestry_1.7.10:${config.forestry.version}:dev") {
+		exclude module: "buildcraft"
+		exclude module: "industrialcraft-2"
+	}
+	compile name: "buildcraft", version: "${config.buildcraft.version}", classifier: "dev"
+	compile("appeng:appliedenergistics2:${config.ae2.version}:dev") {
+		transitive = false
+	}
+	compile("riskyken.armourersWorkshop:Armourers-Workshop:1.7.10-${config.am.version}:deobf"){
+		transitive = false
+	}
+	compile "pneumaticCraft:PneumaticCraft-1.7.10:${config.pneumaticcraft.version}:userdev"
+	compile "igwmod:IGW-Mod-1.7.10:${config.igw.version}:userdev"
+	//provided("com.bluepowermod:BluePower:${config.bluepower.version}:deobf") {
+	//	transitive = false
+	//}
+	//provided("qmunity:QmunityLib:${config.qmunitylib.version}:deobf") {
+	//	transitive = false
+	//}
+}
+
+minecraft {
+	version = "${config.minecraft.version}-${config.forge.version}"
+	runDir = "eclipse"
+
+	replaceIn "vexatos/backpacks/Backpacks.java"
+	replace "@VERSION@", "${config.backpacks.version}"
+}
+
+sourceSets {
+	main {
+		output.resourcesDir = 'build/classes/main'
+	}
+}
+
+jar {
+	exclude 'cofh/**'
+}
+
+apply plugin: 'idea'
+idea {
+	module {
+		scopes.PROVIDED.plus += [configurations.provided]
+		outputDir = file('build/classes/main')
+	}
+}
+
+processResources
+	{
+		// replace stuff in mcmod.info, nothing else
+		from(sourceSets.main.resources.srcDirs) {
+			include 'mcmod.info'
+
+			// replace version and mcversion
+			expand 'version': project.version, 'mcversion': project.minecraft.version
+		}
+
+		// copy everything else, thats not the mcmod.info
+		from(sourceSets.main.resources.srcDirs) {
+			exclude 'mcmod.info'
+		}
+	}
+
+//For Building
+
+def libDir = './build/libs'
+
+task deobfJar(type: Jar) {
+	description = 'Creates a jar file containing the non-obfuscated class files'
+	classifier = 'deobf'
+	destinationDir = file(libDir)
+	from sourceSets.main.output.classesDir
+	exclude 'cofh/**'
+}
+
+task apiZip(type: Zip) {
+	description = 'Creates a zip file containing the API source files only'
+	classifier = 'api'
+	destinationDir = file(libDir)
+	from sourceSets.main.allSource
+	include 'vexatos/**/api/**'
+}
+
+task makeJars << {
+	description = 'Creates the mod files'
+}
+
+makeJars.dependsOn clean, build, deobfJar, apiZip
+build.shouldRunAfter clean
+deobfJar.shouldRunAfter build
+apiZip.shouldRunAfter deobfJar

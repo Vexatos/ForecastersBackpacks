@@ -1,0 +1,17 @@
+[
+{
+  "modid": "ForecastersBackpacks",
+  "name": "Forecaster's Backpacks",
+  "description": "Adds some new Forestry Backpacks.",
+  "version": "${version}",
+  "credits": "",
+  "logoFile": "",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [ "Vexatos" ],
+  "parent":"",
+  "screenshots": [],
+  "dependencies": []
+}
+]
