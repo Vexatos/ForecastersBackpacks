@@ -28,8 +28,7 @@ import java.util.logging.Logger;
  * @author Vexatos
  */
 @Mod(modid = Mods.Backpacks, name = Mods.Backpacks_NAME, version = "@VERSION@",
-	dependencies = "required-after:" + Mods.Forestry + "@[3.6,4);after:" + Mods.OpenComputers + "@[1.5.17,);after:"
-		+ Mods.PneumaticCraft + "@[${version}],[1.11.9,)")
+	dependencies = "required-after:" + Mods.Forestry + "@[3.6,4)")
 public class ForecastersBackpacks {
 
 	@Mod.Instance(Mods.Backpacks)
