@@ -19,18 +19,48 @@ public class Mods {
 		Backpacks_NAME = "Forecaster's Backpacks";
 
 	public static final String
+		Flamingo = "Flamingo",
+		Forestry = "Forestry",
+		PneumaticCraft = "PneumaticCraft";
+
+	//BuildCraft
+	public static final String
 		BuildcraftBuilders = "BuildCraft|Builders",
 		BuildCraftCore = "BuildCraft|Core",
 		BuildCraftEnergy = "BuildCraft|Energy",
 		BuildCraftFactory = "BuildCraft|Factory",
 		BuildCraftRobotics = "BuildCraft|Robotics",
 		BuildCraftSilicon = "BuildCraft|Silicon",
-		BuildCraftTransport = "BuildCraft|Transport",
-		ComputerCraft = "ComputerCraft",
+		BuildCraftTransport = "BuildCraft|Transport";
+
+	//Computer mods
+	public static final String
 		Computronics = "Computronics",
-		Forestry = "Forestry",
-		PneumaticCraft = "PneumaticCraft",
-		OpenComputers = "OpenComputers";
+		OpenPeripheralAddons = "OpenPeripheral",
+
+	ComputerCraft = "ComputerCraft",
+		ComputerCraftEdu = "ComputerCraftEdu",
+		RandomPeripherals = "RandomPeripherals",
+		OpenCCSensors = "OCS",
+		CCLights2 = "CCLights2",
+		PeripheralsPlusPlus = "PeripheralsPlusPlus",
+		MoarPeripherals = "MoarPeripherals",
+		CCTweaks = "CCTweaks",
+		LyqydPeripherals = "LyqydPeripherals",
+		ChunkyPeripherals = "chunkyperipherals",
+		ImmibisPeripherals = "ImmibisPeripherals",
+		FirePeripherals = "FirePeripherals",
+		DixPeripherals = "DixPR",
+		Quadracopters = "Quadracoptors",
+
+	OpenComputers = "OpenComputers",
+		OCLights2 = "OCLights2",
+		OpenSecurity = "opensecurity",
+		OpenPrinter = "openprinter",
+		OpenLights = "openlights",
+		OpenGlasses = "openglasses",
+		MassSound = "masssound",
+		OpenAutomation = "OpenAutomation";
 
 	//Other APIs
 	public static class API {

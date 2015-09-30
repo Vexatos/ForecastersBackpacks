@@ -14,6 +14,8 @@ import java.util.HashMap;
 public enum BackpackTypes {
 	Pneumatic(new BackpackPneumatic()),
 	Computer(new BackpackComputer()),
+	Flamingo(new BackpackFlamingo()),
+	//BuildCraft
 	Plumber(new BackpackPlumber()),
 	Robotic(new BackpackRobotic()),
 	Machinist(new BackpackMachinist());
