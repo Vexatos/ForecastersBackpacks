@@ -19,6 +19,7 @@ public class Mods {
 		Backpacks_NAME = "Forecaster's Backpacks";
 
 	public static final String
+		BiblioCraft = "BiblioCraft",
 		Flamingo = "Flamingo",
 		Forestry = "Forestry",
 		PneumaticCraft = "PneumaticCraft";

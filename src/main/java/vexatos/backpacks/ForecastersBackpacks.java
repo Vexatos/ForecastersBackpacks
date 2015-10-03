@@ -18,17 +18,17 @@ import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import vexatos.backpacks.backpack.BackpackTypes;
 import vexatos.backpacks.misc.CreativeTabBackpacks;
 import vexatos.backpacks.reference.Mods;
-
-import java.util.logging.Logger;
 
 /**
  * @author Vexatos
  */
 @Mod(modid = Mods.Backpacks, name = Mods.Backpacks_NAME, version = "@VERSION@",
-	dependencies = "required-after:" + Mods.Forestry + "@[3.6,4)")
+	dependencies = "required-after:" + Mods.Forestry + "@[3.6,4);after:" + Mods.BiblioCraft + "@[1.11.2,)")
 public class ForecastersBackpacks {
 
 	@Mod.Instance(Mods.Backpacks)
@@ -43,7 +43,7 @@ public class ForecastersBackpacks {
 	public void preInit(FMLPreInitializationEvent e) {
 		config = new Configuration(e.getSuggestedConfigurationFile());
 		config.load();
-		log = Logger.getLogger(Mods.Backpacks_NAME);
+		log = LogManager.getLogger(Mods.Backpacks_NAME);
 	}
 
 	@EventHandler

@@ -1,3 +1,7 @@
+==== 1.0.2 ====
+
+  * ADDED; Scholar's Backpack. Holds BiblioCraft items as well as various books, paper, ink, compasses etc.
+
 ==== 1.0.1 ====
 
   * ADDED: Flamingo Backpack, due to the great demand
