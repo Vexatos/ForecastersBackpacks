@@ -70,6 +70,9 @@ public abstract class BackpackBase implements IBackpackDefinition {
 
 	@Override
 	public boolean isValidItem(ItemStack toPickup) {
+		if(toPickup == null) {
+			return false;
+		}
 		for(ItemStack invalidStack : this.invalidItems) {
 			if(isEqual(invalidStack, toPickup)) {
 				return false;
