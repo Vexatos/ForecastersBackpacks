@@ -22,6 +22,7 @@ public class Mods {
 		BiblioCraft = "BiblioCraft",
 		Flamingo = "Flamingo",
 		Forestry = "Forestry",
+		IC2 = "IC2",
 		PneumaticCraft = "PneumaticCraft";
 
 	//BuildCraft

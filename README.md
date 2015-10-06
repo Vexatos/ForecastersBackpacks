@@ -13,6 +13,7 @@ Right now the mod adds the following backpacks (both standard and woven versions
   - Computer Engineer's Backpack: Holds stuff from ComputerCraft, OpenComputers and all their addons. If you find an addon which is not supported, tell me.
   - Flamingo Backpack: Holds anything added by the Flamingo mod.
   - Scholar's Backpack: Holds anything added by BiblioCraft as well as some additional items like Paper, Maps and books.
+  - Industrialist's Backpack: Holds anything added by IndustrialCraft 2.
   - Plumber's Backpack: Holds your BuildCraft Pipes and Wrenches (anything from BuildCraft Transport).
   - Robotics Engineer's Backpack: Holds your BuildCraft Robotics stuff.
   - Machinist's Backpack: Holds any BuildCraft machines and things related to those.
