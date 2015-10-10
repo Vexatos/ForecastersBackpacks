@@ -1,6 +1,7 @@
 package vexatos.backpacks.backpack;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import ic2.api.item.IBoxable;
 import ic2.core.item.IHandHeldInventory;
 import ic2.core.item.ItemRadioactive;
 import net.minecraft.item.ItemStack;
@@ -24,6 +25,9 @@ public class BackpackIndustrialist extends BackpackModBase {
 	public boolean isValidItem(ItemStack stack) {
 		if(stack == null) {
 			return false;
+		}
+		if(stack.getItem() instanceof IBoxable && ((IBoxable) stack.getItem()).canBeStoredInToolbox(stack)) {
+			return true;
 		}
 		if(super.isValidItem(stack)) {
 			try {

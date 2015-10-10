@@ -1,3 +1,7 @@
+==== 1.0.4 ====
+
+  * ADDED: The Industrialist's Backpack now can hold anything a Toolbox can hold in addition to the things it could hold before.
+
 ==== 1.0.3 ====
 
   * ADDED: Industrialist's Backpack. Holds items added by IndustrialCraft 2
