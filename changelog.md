@@ -1,3 +1,7 @@
+==== 1.0.5 ====
+
+  * FIXED: Forestry 4 is now supported.
+
 ==== 1.0.4 ====
 
   * ADDED: The Industrialist's Backpack now can hold anything a Toolbox can hold in addition to the things it could hold before.
