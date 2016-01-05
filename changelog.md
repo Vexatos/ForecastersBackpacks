@@ -1,3 +1,7 @@
+==== 1.0.6 ====
+
+  * ADDED: Warrior's Backpack. Holds Swords, Bows, Arrows and anything added by Balkon's Weapon Mod or QuiverBow.
+
 ==== 1.0.5 ====
 
   * FIXED: Forestry 4 is now supported.

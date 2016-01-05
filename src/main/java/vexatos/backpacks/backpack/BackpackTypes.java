@@ -17,6 +17,7 @@ public enum BackpackTypes {
 	Flamingo(new BackpackFlamingo()),
 	Scholar(new BackpackScholar()),
 	Industrialist(new BackpackIndustrialist()),
+	Warrior(new BackpackWarrior()),
 	//BuildCraft
 	Plumber(new BackpackPlumber()),
 	Robotic(new BackpackRobotic()),

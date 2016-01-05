@@ -14,6 +14,7 @@ Right now the mod adds the following backpacks (both standard and woven versions
   - Flamingo Backpack: Holds anything added by the Flamingo mod.
   - Scholar's Backpack: Holds anything added by BiblioCraft as well as some additional items like Paper, Maps and books.
   - Industrialist's Backpack: Holds anything added by IndustrialCraft 2 as well as anything that fits into an IC2 Toolbox.
+  - Warrior's Backpack: Holds Swords, Bows, Arrows and anything added by Balkon's Weapon Mod or QuiverBow.
   - Plumber's Backpack: Holds your BuildCraft Pipes and Wrenches (anything from BuildCraft Transport).
   - Robotics Engineer's Backpack: Holds your BuildCraft Robotics stuff.
   - Machinist's Backpack: Holds any BuildCraft machines and things related to those.

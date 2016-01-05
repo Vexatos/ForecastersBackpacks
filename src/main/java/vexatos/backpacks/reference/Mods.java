@@ -35,6 +35,11 @@ public class Mods {
 		BuildCraftSilicon = "BuildCraft|Silicon",
 		BuildCraftTransport = "BuildCraft|Transport";
 
+	// Weapon mods
+	public static final String
+		WeaponMod = "weaponmod",
+		QuiverBow = "quiverchevsky";
+
 	//Computer mods
 	public static final String
 		Computronics = "Computronics",

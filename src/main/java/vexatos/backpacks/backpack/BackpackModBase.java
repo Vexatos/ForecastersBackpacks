@@ -49,7 +49,10 @@ public abstract class BackpackModBase extends BackpackBase {
 	public Object getCraftingItem() {
 		for(String mod : validMods) {
 			if(Mods.isLoaded(mod)) {
-				return getCraftingItem(mod);
+				Object item = getCraftingItem(mod);
+				if(item != null) {
+					return item;
+				}
 			}
 		}
 		return null;
