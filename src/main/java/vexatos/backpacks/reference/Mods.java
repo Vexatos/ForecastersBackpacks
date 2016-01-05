@@ -67,7 +67,8 @@ public class Mods {
 		OpenLights = "openlights",
 		OpenGlasses = "openglasses",
 		MassSound = "masssound",
-		OpenAutomation = "OpenAutomation";
+		OpenAutomation = "OpenAutomation",
+		OpenFM = "openfm";
 
 	//Other APIs
 	public static class API {

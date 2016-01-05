@@ -16,7 +16,7 @@ public class BackpackComputer extends BackpackModBase {
 			ComputerCraftEdu, RandomPeripherals, OpenCCSensors, CCLights2, PeripheralsPlusPlus, MoarPeripherals,
 			CCTweaks, LyqydPeripherals, ChunkyPeripherals, ImmibisPeripherals, FirePeripherals, DixPeripherals, Quadracopters,
 
-			OCLights2, OpenSecurity, OpenPrinter, OpenLights, OpenGlasses, MassSound, OpenAutomation
+			OCLights2, OpenSecurity, OpenPrinter, OpenLights, OpenGlasses, MassSound, OpenAutomation, OpenFM
 		);
 	}
 
