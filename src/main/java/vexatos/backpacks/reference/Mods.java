@@ -62,6 +62,7 @@ public class Mods {
 
 	OpenComputers = "OpenComputers",
 		OCLights2 = "OCLights2",
+		OCMinecarts = "ocminecart",
 		OpenSecurity = "opensecurity",
 		OpenPrinter = "openprinter",
 		OpenLights = "openlights",
