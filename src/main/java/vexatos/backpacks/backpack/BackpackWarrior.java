@@ -23,6 +23,10 @@ public class BackpackWarrior extends BackpackModBase {
 	public void initialize() {
 		super.initialize();
 		this.addValidItem(Items.arrow);
+		this.addValidItem(Mods.IC2, "itemNanoSaber");
+		this.addValidItem(Mods.IC2, "itemToolMiningLaser");
+		this.addValidItem(Mods.PneumaticCraft, "minigun");
+		this.addValidItem(Mods.PneumaticCraft, "gunAmmo");
 	}
 
 	@Override

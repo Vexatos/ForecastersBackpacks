@@ -71,7 +71,7 @@ public class ForecastersBackpacks {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
-		Item silk = GameRegistry.findItem("Forestry", "craftingMaterial");
+		Item silk = GameRegistry.findItem(Mods.Forestry, "craftingMaterial");
 
 		for(BackpackTypes backpack : BackpackTypes.VALUES) {
 			if(backpack.getBackpack().isLoaded()) {

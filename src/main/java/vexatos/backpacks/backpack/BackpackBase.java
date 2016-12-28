@@ -1,5 +1,6 @@
 package vexatos.backpacks.backpack;
 
+import cpw.mods.fml.common.registry.GameRegistry;
 import forestry.api.storage.EnumBackpackType;
 import forestry.api.storage.IBackpackDefinition;
 import net.minecraft.item.Item;
@@ -40,6 +41,20 @@ public abstract class BackpackBase implements IBackpackDefinition {
 	public void addValidItem(Item item) {
 		if(item != null) {
 			addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
+		}
+	}
+
+	public void addValidItem(String mod, String name) {
+		Item item = GameRegistry.findItem(mod, name);
+		if(item != null) {
+			addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
+		}
+	}
+
+	public void addValidStack(String mod, String name) {
+		ItemStack stack = GameRegistry.findItemStack(mod, name, 1);
+		if(stack != null && stack.getItem() != null) {
+			addValidItem(stack);
 		}
 	}
 
