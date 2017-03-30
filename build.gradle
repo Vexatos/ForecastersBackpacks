@@ -17,14 +17,14 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 file "build.properties" withReader {
 	def prop = new Properties()
 	prop.load(it)
 	ext.config = new ConfigSlurper().parse prop
 }
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 version = "${config.minecraft.version}-${config.backpacks.version}"
 group = "vexatos.backpacks" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -134,12 +134,8 @@ minecraft {
 
 sourceSets {
 	main {
-		output.resourcesDir = 'build/classes/main'
+		//output.resourcesDir = 'build/classes/main'
 	}
-}
-
-jar {
-	exclude 'cofh/**'
 }
 
 apply plugin: 'idea'
@@ -152,6 +148,8 @@ idea {
 
 processResources
 	{
+		inputs.property "version", project.version
+		inputs.property "mcversion", project.minecraft.version
 		// replace stuff in mcmod.info, nothing else
 		from(sourceSets.main.resources.srcDirs) {
 			include 'mcmod.info'
@@ -175,7 +173,6 @@ task deobfJar(type: Jar) {
 	classifier = 'deobf'
 	destinationDir = file(libDir)
 	from sourceSets.main.output.classesDir
-	exclude 'cofh/**'
 }
 
 task apiZip(type: Zip) {
