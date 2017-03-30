@@ -19,7 +19,7 @@ Right now the mod adds the following backpacks (both standard and woven versions
   - Robotics Engineer's Backpack: Holds your BuildCraft Robotics stuff.
   - Machinist's Backpack: Holds any BuildCraft machines and things related to those.
 
-###Downloads
+### Downloads
 Downloads can be found [here](http://files.vex.tty.sh/ForecastersBackpacks/).
-###License
+### License
 Forecaster's Backpacks is licensed under the MIT license (https://github.com/Vexatos/ForecastersBackpacks/blob/master/LICENSE.md/). By using or interacting with this software in any way shape or form, you agree to the license of this software.
