@@ -1,8 +1,8 @@
 package vexatos.backpacks.backpack.buildcraft;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import vexatos.backpacks.backpack.BackpackModBase;
 import vexatos.backpacks.reference.Mods;
 
@@ -16,7 +16,7 @@ public class BackpackRobotic extends BackpackModBase {
 
 	@Override
 	protected Object getCraftingItem(String mod) {
-		Item chipset = GameRegistry.findItem(Mods.BuildCraftSilicon, "redstoneChipset");
+		Item chipset = Item.REGISTRY.getObject(new ResourceLocation(Mods.BuildCraftSilicon, "redstoneChipset"));
 		return chipset != null ? new ItemStack(chipset, 1, 1) : "gearGold";
 	}
 }

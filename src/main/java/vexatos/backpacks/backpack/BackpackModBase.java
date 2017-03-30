@@ -1,7 +1,7 @@
 package vexatos.backpacks.backpack;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import vexatos.backpacks.reference.Mods;
 
 import java.util.Arrays;
@@ -27,8 +27,8 @@ public abstract class BackpackModBase extends BackpackBase {
 		if(stack == null) {
 			return false;
 		}
-		GameRegistry.UniqueIdentifier ident = GameRegistry.findUniqueIdentifierFor(stack.getItem());
-		return ident != null && getValidMods().contains(ident.modId);
+		ResourceLocation ident = stack.getItem().getRegistryName();
+		return ident != null && getValidMods().stream().anyMatch((s) -> s.equalsIgnoreCase(ident.getResourceDomain()));
 	}
 
 	public List<String> getValidMods() {

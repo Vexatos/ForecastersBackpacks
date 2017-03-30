@@ -11,17 +11,20 @@ buildscript {
 		}
 	}
 	dependencies {
-		classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
 	}
 }
 
-apply plugin: 'forge'
+apply plugin: 'net.minecraftforge.gradle.forge'
 
 file "build.properties" withReader {
 	def prop = new Properties()
 	prop.load(it)
 	ext.config = new ConfigSlurper().parse prop
 }
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 version = "${config.minecraft.version}-${config.backpacks.version}"
 group = "vexatos.backpacks" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -40,7 +43,7 @@ repositories {
 		name = "OC repo"
 		url = "http://maven.cil.li/"
 	}
-	maven {
+	/*maven {
 		name "Mobius Repo"
 		url "http://mobiusstrip.eu/maven"
 	}
@@ -51,12 +54,20 @@ repositories {
 	maven {
 		name 'tterrag Repo'
 		url "http://maven.tterrag.com/"
-	}
+	}*/
 	maven {
 		name = "Forestry and IC2 repo"
 		url = "http://maven.ic2.player.to/"
 	}
 	maven {
+		name = "JEI repo"
+		url = "http://dvs1.progwml6.com/files/maven"
+	}
+	maven {
+		name = "CurseForge"
+		url = "https://minecraft.curseforge.com/api/maven/"
+	}
+	/*maven {
 		name = "Bluepower Repo"
 		url = "http://maven.bluepowermod.com/"
 	}
@@ -71,7 +82,7 @@ repositories {
 	ivy {
 		name = "BuildCraft"
 		artifactPattern "http://www.mod-buildcraft.com/releases/BuildCraft/[revision]/[module]-[revision]-[classifier].[ext]"
-	}
+	}*/
 }
 
 configurations {
@@ -82,29 +93,28 @@ configurations {
 }
 
 dependencies {
-	compile "li.cil.oc:OpenComputers:${config.oc.version}:dev"
+	deobfCompile "li.cil.oc:OpenComputers:${config.oc.version}"
 	provided "net.industrial-craft:industrialcraft-2:${config.ic2.version}:dev"
-	provided "com.gregoriust.gregtech:gregtech_1.7.10:${config.gregtech.version}:dev"
-	compile "mcp.mobius.waila:Waila:${config.waila.version}:dev"
-	compile("com.enderio:EnderIO:${config.enderio.version}:dev") {
+	//provided "com.gregoriust.gregtech:gregtech_1.7.10:${config.gregtech.version}:dev"
+	//compile "mcp.mobius.waila:Waila:${config.waila.version}:dev"
+	/*compile("com.enderio:EnderIO:${config.enderio.version}:dev") {
 		exclude module: "appliedenergistics2"
 		exclude module: "buildcraft"
 		exclude module: "Waila"
 		exclude module: "forestry_1.7.10"
-	}
-	compile("net.sengir.forestry:forestry_1.7.10:${config.forestry.version}:dev") {
-		exclude module: "buildcraft"
-		exclude module: "industrialcraft-2"
-	}
-	compile name: "buildcraft", version: "${config.buildcraft.version}", classifier: "dev"
-	compile("appeng:appliedenergistics2:${config.ae2.version}:dev") {
+	}*/
+	deobfCompile "net.sengir.forestry:forestry_1.10.2:${config.forestry.version}"
+	deobfCompile "mezz.jei:jei_1.10.2:${config.jei.version}"
+	//deobfCompile 'bibliocraft:BiblioCraft:${config.bibliocraft.version}'
+	//compile name: "buildcraft", version: "${config.buildcraft.version}", classifier: "dev"
+	/*compile("appeng:appliedenergistics2:${config.ae2.version}:dev") {
 		transitive = false
-	}
-	compile("riskyken.armourersWorkshop:Armourers-Workshop:1.7.10-${config.am.version}:deobf"){
+	}*/
+	/*compile("riskyken.armourersWorkshop:Armourers-Workshop:1.7.10-${config.am.version}:deobf"){
 		transitive = false
-	}
-	compile "pneumaticCraft:PneumaticCraft-1.7.10:${config.pneumaticcraft.version}:userdev"
-	compile "igwmod:IGW-Mod-1.7.10:${config.igw.version}:userdev"
+	}*/
+	//compile "pneumaticCraft:PneumaticCraft-1.7.10:${config.pneumaticcraft.version}:userdev"
+	//compile "igwmod:IGW-Mod-1.7.10:${config.igw.version}:userdev"
 	//provided("com.bluepowermod:BluePower:${config.bluepower.version}:deobf") {
 	//	transitive = false
 	//}
@@ -116,6 +126,7 @@ dependencies {
 minecraft {
 	version = "${config.minecraft.version}-${config.forge.version}"
 	runDir = "eclipse"
+	mappings = config.mappings
 
 	replaceIn "vexatos/backpacks/Backpacks.java"
 	replace "@VERSION@", "${config.backpacks.version}"

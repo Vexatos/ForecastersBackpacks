@@ -1,10 +1,11 @@
 package vexatos.backpacks.backpack;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import ic2.api.item.IBoxable;
 import ic2.core.item.IHandHeldInventory;
-import ic2.core.item.ItemRadioactive;
+import ic2.core.item.type.IRadioactiveItemType;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import vexatos.backpacks.ForecastersBackpacks;
 import vexatos.backpacks.reference.Mods;
 
@@ -18,7 +19,7 @@ public class BackpackIndustrialist extends BackpackModBase {
 
 	@Override
 	protected Object getCraftingItem(String mod) {
-		return GameRegistry.findItem(Mods.IC2, "itemToolbox");
+		return Item.REGISTRY.getObject(new ResourceLocation(Mods.IC2, "itemToolbox"));
 	}
 
 	@Override
@@ -31,7 +32,7 @@ public class BackpackIndustrialist extends BackpackModBase {
 		}
 		if(super.isValidItem(stack)) {
 			try {
-				return !(stack.getItem() instanceof ItemRadioactive || stack.getItem() instanceof IHandHeldInventory);
+				return !(stack.getItem() instanceof IRadioactiveItemType || stack.getItem() instanceof IHandHeldInventory);
 			} catch(Throwable t) {
 				ForecastersBackpacks.log.error(t);
 				return false;

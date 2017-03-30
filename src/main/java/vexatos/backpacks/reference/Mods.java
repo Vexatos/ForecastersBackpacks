@@ -1,10 +1,10 @@
 package vexatos.backpacks.reference;
 
-import cpw.mods.fml.common.Loader;
-import cpw.mods.fml.common.ModAPIManager;
-import cpw.mods.fml.common.ModContainer;
-import cpw.mods.fml.common.versioning.ArtifactVersion;
-import cpw.mods.fml.common.versioning.VersionParser;
+import net.minecraftforge.fml.common.Loader;
+import net.minecraftforge.fml.common.ModAPIManager;
+import net.minecraftforge.fml.common.ModContainer;
+import net.minecraftforge.fml.common.versioning.ArtifactVersion;
+import net.minecraftforge.fml.common.versioning.VersionParser;
 
 import java.util.HashMap;
 
@@ -21,7 +21,7 @@ public class Mods {
 	public static final String
 		BiblioCraft = "BiblioCraft",
 		Flamingo = "Flamingo",
-		Forestry = "Forestry",
+		Forestry = "forestry",
 		IC2 = "IC2",
 		PneumaticCraft = "PneumaticCraft";
 

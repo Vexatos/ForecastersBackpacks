@@ -1,17 +1,19 @@
 package vexatos.backpacks.backpack;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import forestry.api.storage.EnumBackpackType;
 import forestry.api.storage.IBackpackDefinition;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.oredict.OreDictionary;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 /**
  * @author CovertJaguar, Vexatos
@@ -31,9 +33,8 @@ public abstract class BackpackBase implements IBackpackDefinition {
 		this.secondaryColor = secondaryColor;
 	}
 
-	@Override
 	public void addValidItem(ItemStack stack) {
-		if(stack != null && stack.getItem() != null) {
+		if(stack != null) {
 			items.add(stack);
 		}
 	}
@@ -45,20 +46,12 @@ public abstract class BackpackBase implements IBackpackDefinition {
 	}
 
 	public void addValidItem(String mod, String name) {
-		Item item = GameRegistry.findItem(mod, name);
+		Item item = Item.REGISTRY.getObject(new ResourceLocation(mod, name));
 		if(item != null) {
 			addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
 		}
 	}
 
-	public void addValidStack(String mod, String name) {
-		ItemStack stack = GameRegistry.findItemStack(mod, name, 1);
-		if(stack != null && stack.getItem() != null) {
-			addValidItem(stack);
-		}
-	}
-
-	@Override
 	public void addValidItems(List<ItemStack> stacks) {
 		for(ItemStack stack : stacks) {
 			addValidItem(stack);
@@ -66,7 +59,7 @@ public abstract class BackpackBase implements IBackpackDefinition {
 	}
 
 	public void addInvalidItem(ItemStack stack) {
-		if(stack != null && stack.getItem() != null) {
+		if(stack != null) {
 			invalidItems.add(stack);
 		}
 	}
@@ -77,13 +70,18 @@ public abstract class BackpackBase implements IBackpackDefinition {
 		}
 	}
 
+	@Nonnull
+	@Override
+	public Predicate<ItemStack> getFilter() {
+		return this::isValidItem;
+	}
+
 	public void addInvalidItem(List<ItemStack> stacks) {
 		for(ItemStack stack : stacks) {
 			addValidItem(stack);
 		}
 	}
 
-	@Override
 	public boolean isValidItem(ItemStack toPickup) {
 		if(toPickup == null) {
 			return false;
@@ -128,7 +126,6 @@ public abstract class BackpackBase implements IBackpackDefinition {
 
 	}
 
-	@Override
 	public String getKey() {
 		return this.key;
 	}
@@ -143,10 +140,10 @@ public abstract class BackpackBase implements IBackpackDefinition {
 	@Override
 	public String getName(ItemStack backpack) {
 		Item item = backpack.getItem();
-		String name = ("" + StatCollector.translateToLocal(item.getUnlocalizedNameInefficiently(backpack) + ".name")).trim();
+		String name = ("" + I18n.translateToLocal(item.getUnlocalizedNameInefficiently(backpack) + ".name")).trim();
 
-		if(backpack.stackTagCompound != null && backpack.stackTagCompound.hasKey("display", 10)) {
-			NBTTagCompound nbt = backpack.stackTagCompound.getCompoundTag("display");
+		if(backpack.getTagCompound() != null && backpack.getTagCompound().hasKey("display", 10)) {
+			NBTTagCompound nbt = backpack.getTagCompound().getCompoundTag("display");
 
 			if(nbt.hasKey("Name", 8)) {
 				name = nbt.getString("Name");

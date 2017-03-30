@@ -20,7 +20,7 @@ public class CreativeTabBackpacks extends CreativeTabs {
 	public ItemStack getIconItemStack() {
 		if(displayStack == null) {
 			for(BackpackTypes value : BackpackTypes.VALUES) {
-				Item item = value.getItem(EnumBackpackType.T1);
+				Item item = value.getItem(EnumBackpackType.NORMAL);
 				if(item != null) {
 					this.displayStack = new ItemStack(item);
 					break;
@@ -28,7 +28,7 @@ public class CreativeTabBackpacks extends CreativeTabs {
 			}
 			if(displayStack == null) {
 				for(BackpackTypes value : BackpackTypes.VALUES) {
-					Item item = value.getItem(EnumBackpackType.T2);
+					Item item = value.getItem(EnumBackpackType.WOVEN);
 					if(item != null) {
 						this.displayStack = new ItemStack(item);
 						break;

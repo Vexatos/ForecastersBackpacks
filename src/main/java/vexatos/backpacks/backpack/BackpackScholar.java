@@ -16,19 +16,19 @@ public class BackpackScholar extends BackpackModBase {
 
 	@Override
 	protected Object getCraftingItem(String mod) {
-		return Items.writable_book;
+		return Items.WRITABLE_BOOK;
 	}
 
 	@Override
 	public void initialize() {
 		super.initialize();
-		this.addValidItem(Items.paper);
-		this.addValidItem(Items.book);
-		this.addValidItem(Items.writable_book);
-		this.addValidItem(Items.written_book);
-		this.addValidItem(Items.map);
-		this.addValidItem(Items.filled_map);
-		this.addValidItem(Items.compass);
+		this.addValidItem(Items.PAPER);
+		this.addValidItem(Items.BOOK);
+		this.addValidItem(Items.WRITABLE_BOOK);
+		this.addValidItem(Items.WRITTEN_BOOK);
+		this.addValidItem(Items.MAP);
+		this.addValidItem(Items.FILLED_MAP);
+		this.addValidItem(Items.COMPASS);
 	}
 
 	@Override

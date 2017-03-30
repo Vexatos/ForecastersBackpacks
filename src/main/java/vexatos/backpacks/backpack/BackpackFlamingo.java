@@ -1,6 +1,7 @@
 package vexatos.backpacks.backpack;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import vexatos.backpacks.reference.Mods;
 
 /**
@@ -14,6 +15,6 @@ public class BackpackFlamingo extends BackpackModBase {
 
 	@Override
 	protected Object getCraftingItem(String mod) {
-		return GameRegistry.findBlock(Mods.Flamingo, "flamingo.flamingo");
+		return Item.REGISTRY.getObject(new ResourceLocation(Mods.Flamingo, "flamingo.flamingo"));
 	}
 }

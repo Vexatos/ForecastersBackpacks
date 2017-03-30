@@ -16,13 +16,13 @@ public class BackpackWarrior extends BackpackModBase {
 
 	@Override
 	protected Object getCraftingItem(String mod) {
-		return Items.iron_sword;
+		return Items.IRON_SWORD;
 	}
 
 	@Override
 	public void initialize() {
 		super.initialize();
-		this.addValidItem(Items.arrow);
+		this.addValidItem(Items.ARROW);
 		this.addValidItem(Mods.IC2, "itemNanoSaber");
 		this.addValidItem(Mods.IC2, "itemToolMiningLaser");
 		this.addValidItem(Mods.PneumaticCraft, "minigun");

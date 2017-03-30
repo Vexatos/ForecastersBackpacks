@@ -1,3 +1,7 @@
+==== 1.0.7 ====
+
+  * ADDED: OC-Minecarts to Computer Engineer's Backpack
+
 ==== 1.0.6 ====
 
   * ADDED: Warrior's Backpack. Holds Swords, Bows, Arrows and anything added by Balkon's Weapon Mod or QuiverBow.

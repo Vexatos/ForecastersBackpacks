@@ -1,6 +1,7 @@
 package vexatos.backpacks.backpack.buildcraft;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import vexatos.backpacks.backpack.BackpackModBase;
 import vexatos.backpacks.reference.Mods;
 
@@ -14,12 +15,12 @@ public class BackpackPlumber extends BackpackModBase {
 
 	@Override
 	protected Object getCraftingItem(String mod) {
-		return GameRegistry.findItem(Mods.BuildCraftTransport, "pipeWaterproof");
+		return Item.REGISTRY.getObject(new ResourceLocation(Mods.BuildCraftTransport, "pipeWaterproof"));
 	}
 
 	@Override
 	public void initialize() {
 		super.initialize();
-		this.addValidItem(GameRegistry.findItem(Mods.BuildCraftCore, "wrenchItem"));
+		this.addValidItem(Mods.BuildCraftCore, "wrenchItem");
 	}
 }
