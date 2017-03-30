@@ -5,7 +5,7 @@ Forecaster's Backpacks is an addon for Forestry I made for Forecaster. It adds a
 
 It is entirely made for fun, and nothing else.
 
-###New backpacks? Tell me more!
+### New backpacks? Tell me more!
 
 Right now the mod adds the following backpacks (both standard and woven versions), more may come in the future.
 
