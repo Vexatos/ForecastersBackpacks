@@ -19,7 +19,7 @@ public class BackpackIndustrialist extends BackpackModBase {
 
 	@Override
 	protected Object getCraftingItem(String mod) {
-		return Item.REGISTRY.getObject(new ResourceLocation(Mods.IC2, "itemToolbox"));
+		return Item.REGISTRY.getObject(new ResourceLocation(Mods.IC2, "tool_box"));
 	}
 
 	@Override
