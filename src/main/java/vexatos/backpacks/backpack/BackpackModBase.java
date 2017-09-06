@@ -4,6 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import vexatos.backpacks.reference.Mods;
 
+import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public abstract class BackpackModBase extends BackpackBase {
 		if(super.isValidItem(stack)) {
 			return true;
 		}
-		if(stack == null) {
+		if(stack.isEmpty()) {
 			return false;
 		}
 		ResourceLocation ident = stack.getItem().getRegistryName();
@@ -45,6 +46,7 @@ public abstract class BackpackModBase extends BackpackBase {
 		return false;
 	}
 
+	@Nullable
 	@Override
 	public Object getCraftingItem() {
 		for(String mod : validMods) {
@@ -58,5 +60,6 @@ public abstract class BackpackModBase extends BackpackBase {
 		return null;
 	}
 
+	@Nullable
 	protected abstract Object getCraftingItem(String mod);
 }

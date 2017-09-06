@@ -11,7 +11,7 @@ buildscript {
 		}
 	}
 	dependencies {
-		classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+		classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
 	}
 }
 
@@ -103,8 +103,12 @@ dependencies {
 		exclude module: "Waila"
 		exclude module: "forestry_1.7.10"
 	}*/
-	deobfCompile "net.sengir.forestry:forestry_1.10.2:${config.forestry.version}"
-	deobfCompile "mezz.jei:jei_1.10.2:${config.jei.version}"
+	deobfCompile ("net.sengir.forestry:forestry_1.12.1:${config.forestry.version}") {
+		exclude module: "buildcraft"
+		exclude module: "industrialcraft-2"
+		exclude module: "jei"
+	}
+	deobfCompile "mezz.jei:jei_1.12.1:${config.jei.version}"
 	//deobfCompile 'bibliocraft:BiblioCraft:${config.bibliocraft.version}'
 	//compile name: "buildcraft", version: "${config.buildcraft.version}", classifier: "dev"
 	/*compile("appeng:appliedenergistics2:${config.ae2.version}:dev") {

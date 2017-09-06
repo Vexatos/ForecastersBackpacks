@@ -10,6 +10,7 @@ import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -23,8 +24,8 @@ public abstract class BackpackBase implements IBackpackDefinition {
 	private final String key;
 	private final int primaryColor;
 	private final int secondaryColor;
-	protected ArrayList<ItemStack> items = new ArrayList<ItemStack>();
-	protected ArrayList<ItemStack> invalidItems = new ArrayList<ItemStack>();
+	protected ArrayList<ItemStack> items = new ArrayList<>();
+	protected ArrayList<ItemStack> invalidItems = new ArrayList<>();
 	private boolean isLoaded;
 
 	public BackpackBase(String key, int primaryColor, int secondaryColor) {
@@ -34,15 +35,13 @@ public abstract class BackpackBase implements IBackpackDefinition {
 	}
 
 	public void addValidItem(ItemStack stack) {
-		if(stack != null) {
+		if(!stack.isEmpty()) {
 			items.add(stack);
 		}
 	}
 
 	public void addValidItem(Item item) {
-		if(item != null) {
-			addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
-		}
+		addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
 	}
 
 	public void addValidItem(String mod, String name) {
@@ -59,15 +58,13 @@ public abstract class BackpackBase implements IBackpackDefinition {
 	}
 
 	public void addInvalidItem(ItemStack stack) {
-		if(stack != null) {
+		if(!stack.isEmpty()) {
 			invalidItems.add(stack);
 		}
 	}
 
 	public void addInvalidItem(Item item) {
-		if(item != null) {
-			addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
-		}
+		addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
 	}
 
 	@Nonnull
@@ -83,7 +80,7 @@ public abstract class BackpackBase implements IBackpackDefinition {
 	}
 
 	public boolean isValidItem(ItemStack toPickup) {
-		if(toPickup == null) {
+		if(toPickup.isEmpty()) {
 			return false;
 		}
 		for(ItemStack invalidStack : this.invalidItems) {
@@ -103,7 +100,7 @@ public abstract class BackpackBase implements IBackpackDefinition {
 	 * @author CovertJaguar
 	 */
 	protected boolean isEqual(ItemStack stack, ItemStack toPickup) {
-		if((stack == null) || (toPickup == null)) {
+		if(stack.isEmpty() || toPickup.isEmpty()) {
 			return false;
 		}
 		if(stack.getItem() != toPickup.getItem()) {
@@ -171,6 +168,7 @@ public abstract class BackpackBase implements IBackpackDefinition {
 		this.isLoaded = loaded;
 	}
 
+	@Nullable
 	public abstract Object getCraftingItem();
 
 	public abstract boolean shouldLoad();

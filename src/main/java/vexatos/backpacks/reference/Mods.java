@@ -7,6 +7,7 @@ import net.minecraftforge.fml.common.versioning.ArtifactVersion;
 import net.minecraftforge.fml.common.versioning.VersionParser;
 
 import java.util.HashMap;
+import java.util.Locale;
 
 /**
  * @author Vexatos
@@ -15,25 +16,25 @@ public class Mods {
 
 	//The mod itself
 	public static final String
-		Backpacks = "ForecastersBackpacks",
+		Backpacks = "forecastersbackpacks",
 		Backpacks_NAME = "Forecaster's Backpacks";
 
 	public static final String
-		BiblioCraft = "BiblioCraft",
-		Flamingo = "Flamingo",
+		BiblioCraft = "bibliocraft",
+		Flamingo = "flamingo",
 		Forestry = "forestry",
-		IC2 = "IC2",
-		PneumaticCraft = "PneumaticCraft";
+		IC2 = "ic2",
+		PneumaticCraft = "pneumaticcraft";
 
 	//BuildCraft
 	public static final String
-		BuildcraftBuilders = "BuildCraft|Builders",
-		BuildCraftCore = "BuildCraft|Core",
-		BuildCraftEnergy = "BuildCraft|Energy",
-		BuildCraftFactory = "BuildCraft|Factory",
-		BuildCraftRobotics = "BuildCraft|Robotics",
-		BuildCraftSilicon = "BuildCraft|Silicon",
-		BuildCraftTransport = "BuildCraft|Transport";
+		BuildcraftBuilders = "buildbraft|builders",
+		BuildCraftCore = "buildcraft|core",
+		BuildCraftEnergy = "buildcraft|energy",
+		BuildCraftFactory = "buildcraft|factory",
+		BuildCraftRobotics = "buildcraft|robotics",
+		BuildCraftSilicon = "buildcraft|silicon",
+		BuildCraftTransport = "buildcraft|transport";
 
 	// Weapon mods
 	public static final String
@@ -42,33 +43,33 @@ public class Mods {
 
 	//Computer mods
 	public static final String
-		Computronics = "Computronics",
-		OpenPeripheralAddons = "OpenPeripheral",
+		Computronics = "computronics",
+		OpenPeripheralAddons = "openperipheral",
 
-	ComputerCraft = "ComputerCraft",
-		ComputerCraftEdu = "ComputerCraftEdu",
-		RandomPeripherals = "RandomPeripherals",
-		OpenCCSensors = "OCS",
-		CCLights2 = "CCLights2",
-		PeripheralsPlusPlus = "PeripheralsPlusPlus",
-		MoarPeripherals = "MoarPeripherals",
-		CCTweaks = "CCTweaks",
-		LyqydPeripherals = "LyqydPeripherals",
+	ComputerCraft = "computercraft",
+		ComputerCraftEdu = "computercraftedu",
+		RandomPeripherals = "randomperipherals",
+		OpenCCSensors = "ocs",
+		CCLights2 = "cclights2",
+		PeripheralsPlusPlus = "peripheralsplusplus",
+		MoarPeripherals = "moarperipherals",
+		CCTweaks = "cctweaks",
+		LyqydPeripherals = "lyqydperipherals",
 		ChunkyPeripherals = "chunkyperipherals",
-		ImmibisPeripherals = "ImmibisPeripherals",
-		FirePeripherals = "FirePeripherals",
-		DixPeripherals = "DixPR",
-		Quadracopters = "Quadracoptors",
+		ImmibisPeripherals = "immibisperipherals",
+		FirePeripherals = "fireperipherals",
+		DixPeripherals = "dixpr",
+		Quadracopters = "quadracoptors",
 
-	OpenComputers = "OpenComputers",
-		OCLights2 = "OCLights2",
+	OpenComputers = "opencomputers",
+		OCLights2 = "oclights2",
 		OCMinecarts = "ocminecart",
 		OpenSecurity = "opensecurity",
 		OpenPrinter = "openprinter",
 		OpenLights = "openlights",
 		OpenGlasses = "openglasses",
 		MassSound = "masssound",
-		OpenAutomation = "OpenAutomation",
+		OpenAutomation = "openautomation",
 		OpenFM = "openfm";
 
 	//Other APIs
@@ -78,7 +79,7 @@ public class Mods {
 
 		public static ArtifactVersion getVersion(String name) {
 			if(apiList == null) {
-				apiList = new HashMap<String, ArtifactVersion>();
+				apiList = new HashMap<>();
 				Iterable<? extends ModContainer> apis = ModAPIManager.INSTANCE.getAPIList();
 
 				for(ModContainer api : apis) {
@@ -107,6 +108,6 @@ public class Mods {
 	}
 
 	public static boolean isLoaded(String name) {
-		return Loader.isModLoaded(name);
+		return Loader.isModLoaded(name.toLowerCase(Locale.ROOT));
 	}
 }

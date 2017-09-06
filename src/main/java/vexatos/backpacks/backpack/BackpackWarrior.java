@@ -6,6 +6,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import vexatos.backpacks.reference.Mods;
 
+import javax.annotation.Nullable;
+
 /**
  * @author Vexatos
  */
@@ -14,6 +16,7 @@ public class BackpackWarrior extends BackpackModBase {
 		super("warrior", 0x151515, 0xF0F000, Mods.WeaponMod, Mods.QuiverBow);
 	}
 
+	@Nullable
 	@Override
 	protected Object getCraftingItem(String mod) {
 		return Items.IRON_SWORD;
@@ -31,6 +34,6 @@ public class BackpackWarrior extends BackpackModBase {
 
 	@Override
 	public boolean isValidItem(ItemStack stack) {
-		return super.isValidItem(stack) || stack != null && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemBow);
+		return super.isValidItem(stack) || !stack.isEmpty() && (stack.getItem() instanceof ItemSword || stack.getItem() instanceof ItemBow);
 	}
 }

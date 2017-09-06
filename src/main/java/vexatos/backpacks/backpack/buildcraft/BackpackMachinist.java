@@ -3,6 +3,8 @@ package vexatos.backpacks.backpack.buildcraft;
 import vexatos.backpacks.backpack.BackpackModBase;
 import vexatos.backpacks.reference.Mods;
 
+import javax.annotation.Nullable;
+
 /**
  * @author Vexatos
  */
@@ -14,6 +16,7 @@ public class BackpackMachinist extends BackpackModBase {
 			Mods.BuildCraftFactory);
 	}
 
+	@Nullable
 	@Override
 	protected Object getCraftingItem(String mod) {
 		return "gearIron";

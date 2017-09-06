@@ -6,6 +6,7 @@ import vexatos.backpacks.backpack.buildcraft.BackpackMachinist;
 import vexatos.backpacks.backpack.buildcraft.BackpackPlumber;
 import vexatos.backpacks.backpack.buildcraft.BackpackRobotic;
 
+import javax.annotation.Nullable;
 import java.util.HashMap;
 
 /**
@@ -35,6 +36,7 @@ public enum BackpackTypes {
 		return this.backpack;
 	}
 
+	@Nullable
 	public Item getItem(EnumBackpackType type) {
 		return this.backpackItems.get(type);
 	}

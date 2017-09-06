@@ -5,6 +5,8 @@ import net.minecraft.util.ResourceLocation;
 import vexatos.backpacks.backpack.BackpackModBase;
 import vexatos.backpacks.reference.Mods;
 
+import javax.annotation.Nullable;
+
 /**
  * @author Vexatos
  */
@@ -13,6 +15,7 @@ public class BackpackPlumber extends BackpackModBase {
 		super("buildcraft.plumber", 0xDD4400, 0xFFFFFF, Mods.BuildCraftTransport);
 	}
 
+	@Nullable
 	@Override
 	protected Object getCraftingItem(String mod) {
 		return Item.REGISTRY.getObject(new ResourceLocation(Mods.BuildCraftTransport, "pipeWaterproof"));

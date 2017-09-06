@@ -1,9 +1,11 @@
 package vexatos.backpacks.backpack;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import vexatos.backpacks.reference.Mods;
+
+import javax.annotation.Nullable;
 
 import static vexatos.backpacks.reference.Mods.*;
 
@@ -22,10 +24,11 @@ public class BackpackComputer extends BackpackModBase {
 		);
 	}
 
+	@Nullable
 	@Override
 	protected Object getCraftingItem(String mod) {
 		return Mods.OpenComputers.equals(mod) ? "oc:materialTransistor"
 			: Mods.ComputerCraft.equals(mod) ? Item.REGISTRY.getObject(new ResourceLocation(Mods.ComputerCraft, "CC-Cable"))
-			: null;
+			: ItemStack.EMPTY;
 	}
 }

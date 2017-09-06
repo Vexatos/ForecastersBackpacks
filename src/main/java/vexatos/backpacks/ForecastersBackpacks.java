@@ -9,9 +9,12 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -73,7 +76,7 @@ public class ForecastersBackpacks {
 	private Item registerBackpack(BackpackTypes backpack, EnumBackpackType type, String name) {
 		BackpackManager.backpackInterface.registerBackpackDefinition(backpack.getBackpack().getKey(), backpack.getBackpack());
 		Item item = BackpackManager.backpackInterface.createBackpack(backpack.getBackpack().getKey(), type).setCreativeTab(tab).setUnlocalizedName(name);
-		GameRegistry.register(item, new ResourceLocation(Mods.Backpacks, item.getUnlocalizedName()));
+		GameRegistry.findRegistry(Item.class).register(item.setRegistryName(new ResourceLocation(Mods.Backpacks, item.getUnlocalizedName())));
 		Proxies.common.registerItem(item);
 		proxy.registerModel(item);
 		backpack.setItem(type, item);
@@ -82,7 +85,7 @@ public class ForecastersBackpacks {
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent e) {
-		Item silk = Item.REGISTRY.getObject(new ResourceLocation(Mods.Forestry, "craftingMaterial"));
+		Item silk = Item.REGISTRY.getObject(new ResourceLocation(Mods.Forestry, "crafting_material"));
 
 		for(BackpackTypes backpack : BackpackTypes.VALUES) {
 			if(backpack.getBackpack().isLoaded()) {
@@ -93,14 +96,18 @@ public class ForecastersBackpacks {
 				if(backpackItem1 != null) {
 					Object craftingItem = backpack.getBackpack().getCraftingItem();
 					if(craftingItem != null) {
-						GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(backpackItem1),
-							"X#X", "VYV", "X#X", 'Y', "chestWood", 'X', Items.STRING, '#', Blocks.WOOL, 'V', craftingItem));
+						GameRegistry.findRegistry(IRecipe.class).register(new ShapedOreRecipe(
+							new ResourceLocation(Mods.Backpacks, "backpacks"), new ItemStack(backpackItem1),
+							"X#X", "VYV", "X#X", 'Y', "chestWood", 'X', Items.STRING, '#', Blocks.WOOL, 'V', craftingItem)
+						.setRegistryName(new ResourceLocation(Mods.Backpacks, "backpack" + backpack.name())));
 					}
 					if(silk != null) {
 						Item backpackItem2 = backpack.getItem(EnumBackpackType.WOVEN);
-						RecipeManagers.carpenterManager.addRecipe(200, FluidRegistry.getFluidStack("water", 1000), null, new ItemStack(backpackItem2),
-							"WXW", "WTW", "WWW", 'X', Items.DIAMOND, 'W',
-							new ItemStack(silk, 1, 3), 'T', backpackItem1);
+						RecipeManagers.carpenterManager.addRecipe(200, FluidRegistry.getFluidStack("water", Fluid.BUCKET_VOLUME), ItemStack.EMPTY, new ItemStack(backpackItem2),
+							"WXW", "WTW", "WWW",
+							'X', "gemDiamond",
+							'W', new ItemStack(silk, 1, 3),
+							'T', backpackItem1);
 					}
 				}
 			}

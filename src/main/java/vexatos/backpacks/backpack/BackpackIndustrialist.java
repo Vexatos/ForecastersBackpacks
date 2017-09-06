@@ -9,6 +9,8 @@ import net.minecraft.util.ResourceLocation;
 import vexatos.backpacks.ForecastersBackpacks;
 import vexatos.backpacks.reference.Mods;
 
+import javax.annotation.Nullable;
+
 /**
  * @author Vexatos
  */
@@ -17,6 +19,7 @@ public class BackpackIndustrialist extends BackpackModBase {
 		super("industrialist", 0xD1D9D9, 0xFFFFFF, Mods.IC2);
 	}
 
+	@Nullable
 	@Override
 	protected Object getCraftingItem(String mod) {
 		return Item.REGISTRY.getObject(new ResourceLocation(Mods.IC2, "tool_box"));
@@ -24,7 +27,7 @@ public class BackpackIndustrialist extends BackpackModBase {
 
 	@Override
 	public boolean isValidItem(ItemStack stack) {
-		if(stack == null) {
+		if(stack.isEmpty()) {
 			return false;
 		}
 		if(stack.getItem() instanceof IBoxable && ((IBoxable) stack.getItem()).canBeStoredInToolbox(stack)) {

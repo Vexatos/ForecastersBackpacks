@@ -6,6 +6,8 @@ import net.minecraft.item.ItemStack;
 import vexatos.backpacks.ForecastersBackpacks;
 import vexatos.backpacks.reference.Mods;
 
+import javax.annotation.Nullable;
+
 /**
  * @author Vexatos
  */
@@ -14,6 +16,7 @@ public class BackpackScholar extends BackpackModBase {
 		super("scholar", 0xB77400, 0xFFFFFF, Mods.BiblioCraft);
 	}
 
+	@Nullable
 	@Override
 	protected Object getCraftingItem(String mod) {
 		return Items.WRITABLE_BOOK;
@@ -36,7 +39,7 @@ public class BackpackScholar extends BackpackModBase {
 		if(super.isValidItem(stack)) {
 			return true;
 		}
-		if(stack == null) {
+		if(stack.isEmpty()) {
 			return false;
 		}
 		try {

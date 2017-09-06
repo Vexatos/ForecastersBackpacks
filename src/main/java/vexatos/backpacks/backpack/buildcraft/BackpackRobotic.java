@@ -6,6 +6,8 @@ import net.minecraft.util.ResourceLocation;
 import vexatos.backpacks.backpack.BackpackModBase;
 import vexatos.backpacks.reference.Mods;
 
+import javax.annotation.Nullable;
+
 /**
  * @author Vexatos
  */
@@ -14,6 +16,7 @@ public class BackpackRobotic extends BackpackModBase {
 		super("buildcraft.robotic", 0x770000, 0x00FFFF, Mods.BuildCraftRobotics);
 	}
 
+	@Nullable
 	@Override
 	protected Object getCraftingItem(String mod) {
 		Item chipset = Item.REGISTRY.getObject(new ResourceLocation(Mods.BuildCraftSilicon, "redstoneChipset"));
