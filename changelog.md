@@ -1,3 +1,7 @@
+==== 1.0.10 ====
+
+  * ADDED: Logician's backpack. Holds items from SimpleLogic and Complex Logic, as well as a couple of Vanilla Redstone items like repeaters and comparators.
+
 ==== 1.0.7 ====
 
   * ADDED: OC-Minecarts to Computer Engineer's Backpack
