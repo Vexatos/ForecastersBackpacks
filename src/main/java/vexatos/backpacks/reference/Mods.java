@@ -28,13 +28,13 @@ public class Mods {
 
 	//BuildCraft
 	public static final String
-		BuildcraftBuilders = "buildbraft|builders",
-		BuildCraftCore = "buildcraft|core",
-		BuildCraftEnergy = "buildcraft|energy",
-		BuildCraftFactory = "buildcraft|factory",
-		BuildCraftRobotics = "buildcraft|robotics",
-		BuildCraftSilicon = "buildcraft|silicon",
-		BuildCraftTransport = "buildcraft|transport";
+		BuildcraftBuilders = "buildbraftbuilders",
+		BuildCraftCore = "buildcraftcore",
+		BuildCraftEnergy = "buildcraftenergy",
+		BuildCraftFactory = "buildcraftfactory",
+		BuildCraftRobotics = "buildcraftrobotics",
+		BuildCraftSilicon = "buildcraftsilicon",
+		BuildCraftTransport = "buildcrafttransport";
 
 	// Weapon mods
 	public static final String
