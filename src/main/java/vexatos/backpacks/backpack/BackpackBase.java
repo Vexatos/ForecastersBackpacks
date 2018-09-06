@@ -45,18 +45,15 @@ public abstract class BackpackBase implements IBackpackDefinition {
 		addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
 	}
 
-	public void addValidItem(String mod, String name) {
-		Item item = Item.REGISTRY.getObject(new ResourceLocation(mod, name));
-		if(item != null) {
-			addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
-		}
-	}
-
 	public void addValidItem(@Nullable ResourceLocation name) {
 		Item item = Item.REGISTRY.getObject(name);
 		if(item != null) {
 			addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
 		}
+	}
+
+	public void addValidItem(String mod, String name) {
+		addValidItem(new ResourceLocation(mod, name));
 	}
 
 	public void addValidItem(Block block) {
