@@ -15,6 +15,7 @@ import java.util.HashMap;
 public enum BackpackTypes {
 	Pneumatic(new BackpackPneumatic()),
 	Computer(new BackpackComputer()),
+	Logician(new BackpackLogician()),
 	Flamingo(new BackpackFlamingo()),
 	Scholar(new BackpackScholar()),
 	Industrialist(new BackpackIndustrialist()),
@@ -26,7 +27,7 @@ public enum BackpackTypes {
 
 	public static final BackpackTypes[] VALUES = values();
 	private final BackpackBase backpack;
-	private final HashMap<EnumBackpackType, Item> backpackItems = new HashMap<EnumBackpackType, Item>();
+	private final HashMap<EnumBackpackType, Item> backpackItems = new HashMap<>();
 
 	BackpackTypes(BackpackBase backpack) {
 		this.backpack = backpack;

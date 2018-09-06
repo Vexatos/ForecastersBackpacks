@@ -21,6 +21,7 @@ public class Mods {
 
 	public static final String
 		BiblioCraft = "bibliocraft",
+		Charset = "charset",
 		Flamingo = "flamingo",
 		Forestry = "forestry",
 		IC2 = "ic2",
@@ -40,6 +41,11 @@ public class Mods {
 	public static final String
 		WeaponMod = "weaponmod",
 		QuiverBow = "quiverchevsky";
+
+	// Logic mods
+
+	public static final String
+		ComplexLogic = "complex-logic";
 
 	//Computer mods
 	public static final String

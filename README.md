@@ -22,4 +22,4 @@ Right now the mod adds the following backpacks (both standard and woven versions
 ### Downloads
 Downloads can be found [here](https://files.vexatos.com/?dir=ForecastersBackpacks).
 ### License
-Forecaster's Backpacks is licensed under the MIT license (https://github.com/Vexatos/ForecastersBackpacks/blob/master/LICENSE.md/). By using or interacting with this software in any way shape or form, you agree to the license of this software.
+Forecaster's Backpacks is licensed under the [MIT license](LICENSE.md). By using or interacting with this software in any way shape or form, you agree to the license of this software.

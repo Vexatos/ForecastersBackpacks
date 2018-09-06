@@ -35,7 +35,7 @@ import vexatos.backpacks.reference.Mods;
  * @author Vexatos
  */
 @Mod(modid = Mods.Backpacks, name = Mods.Backpacks_NAME, version = "@VERSION@",
-	dependencies = "required-after:" + Mods.Forestry + "@[5,);after:" + Mods.BiblioCraft + "@[1.11.2,)")
+	dependencies = "required-after:" + Mods.Forestry + "@[5,);after:" + Mods.BiblioCraft + "@[1.11.2,); after:" + Mods.Charset + " @[0.5,)")
 public class ForecastersBackpacks {
 
 	@Mod.Instance(Mods.Backpacks)

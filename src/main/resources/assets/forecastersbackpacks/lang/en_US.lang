@@ -4,6 +4,8 @@ itemGroup.forecastersbackpacks=Forecaster's Backpacks
 
 item.forecastersbackpacks.backpack.computer.normal.name=Computer Engineer's Backpack
 item.forecastersbackpacks.backpack.computer.woven.name=Woven Computer Engineer's Backpack
+item.forecastersbackpacks.backpack.logician.normal.name=Logician's Backpack
+item.forecastersbackpacks.backpack.logician.woven.name=Woven Logician's Backpack
 item.forecastersbackpacks.backpack.pneumatic.normal.name=Pneumatic Engineer's Backpack
 item.forecastersbackpacks.backpack.pneumatic.woven.name=Woven Pneumatic Engineer's Backpack
 item.forecastersbackpacks.backpack.flamingo.normal.name=Flamingo Backpack

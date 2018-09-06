@@ -2,6 +2,7 @@ package vexatos.backpacks.backpack;
 
 import forestry.api.storage.EnumBackpackType;
 import forestry.api.storage.IBackpackDefinition;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -49,6 +50,17 @@ public abstract class BackpackBase implements IBackpackDefinition {
 		if(item != null) {
 			addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
 		}
+	}
+
+	public void addValidItem(@Nullable ResourceLocation name) {
+		Item item = Item.REGISTRY.getObject(name);
+		if(item != null) {
+			addValidItem(new ItemStack(item, 1, OreDictionary.WILDCARD_VALUE));
+		}
+	}
+
+	public void addValidItem(Block block) {
+		addValidItem(block.getRegistryName());
 	}
 
 	public void addValidItems(List<ItemStack> stacks) {
